@@ -23,7 +23,7 @@
 			<plugin>
 				<groupId>org.squashtest.ta</groupId>
 				<artifactId>squash-ta-maven-plugin</artifactId>
-				<version>${ta.framework.version}</version>
+				<version>1.8.0-RELEASE</version>
 				
 				<!-- Here you can add libraries to the engine classpath, using the <dependencies></dependencies> tag -->
                 <!-- A sample with the mySql jdbc driver -->
