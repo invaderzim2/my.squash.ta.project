@@ -1,0 +1,1 @@
+EXECUTE cleanup WITH seleniumServer AS ignoredResource
