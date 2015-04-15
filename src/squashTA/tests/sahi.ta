@@ -1,0 +1,2 @@
+test :
+# EXECUTE_SAHI sahi-tutorial.sah ON samplehttp USING sahiConf.properties

@@ -1,3 +1,0 @@
-LOAD seleniumConf.properties AS seleniumConf.file
-CONVERT seleniumConf.file TO configuration.selenium AS seleniumConf
-EXECUTE launch WITH seleniumConf AS seleniumServer
