@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite time="2.132" failures="0" tests="1" name="tests" >
-  <testcase time="2.09" classname="tests" name="setup.ta" />
-  <testcase time="0.041" classname="tests" name="first-test.ta" />
-  <testcase time="0.0" classname="tests" name="teardown.ta" />
+<testsuite time="8.165" failures="0" tests="1" name="tests" >
+  <testcase time="8.155" classname="tests" name="sahi.ta" />
 </testsuite>

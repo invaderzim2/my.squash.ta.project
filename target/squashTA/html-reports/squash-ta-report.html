@@ -23,7 +23,7 @@
                 <span>ArtifactId:&nbsp;</span>my.squash.ta.project<br/> 
                 <span>Version:&nbsp;</span>1.0<br/> 
                 <br/> 
-                <span>Execution date:&nbsp;</span>04/14/2015 14:24:33
+                <span>Execution date:&nbsp;</span>04/15/2015 13:22:02
                 <br/>
             </div>
 
@@ -56,7 +56,7 @@
         <td>0</td>
         <td>0</td>
         <td>100%</td>
-        <td>2,132</td>
+        <td>8,165</td>
     </tr>
                     </tbody>
                     <tfoot>
@@ -69,7 +69,7 @@
                             <td>0</td>
                             <td>0</td>                        
                             <td>100%</td>
-                            <td>2,132</td>
+                            <td>8,165</td>
                         </tr>
                     </tfoot>
             </table>
@@ -83,6 +83,37 @@
             </div>
         </div>
         
+            <div>        
+                <table class="w100 striped">
+                    <thead>
+                     <tr class="table-header">
+                            <th colspan=2>Targets Initialisation</th>
+                            <th class="w10">Nature</th>
+                            <th class="w10">Status</th>
+                        </tr>
+                 </thead>
+                     <tbody>
+    <tr>
+        <td class="center status">
+        <img src="public/images/Circle_Green.png" />
+        </td>
+        <td>samplehttp</td>
+        <td>http</td>
+        <td>        OK
+</td>
+    </tr>
+                        </tbody>               
+                </table>
+            </div>
+            <div class="note">
+                Note:
+                <ul>
+                 <li>"not found" means the target was not found or was not properly configured. Please check your configuration again.</li>
+                 <li>"error" means an error occurs during the target initialisation.</li>
+                 <li>"ok" means the target was properly configured and does exist.</li>
+                 <li><u>Warning:</u> due to technical limitations, a web target properly configured might appear as "ok" even though its url leads to nothing</li>
+               </ul> 
+            </div>
                 <div class="ecosystem">
     <div class="ecosystem-header">
         <h2>
@@ -102,39 +133,15 @@ tests
                 </thead>
                 <tbody>
     <tr>
-        <td class="center status"><a href="#tests_setup.ta">         <img src="public/images/Circle_Green.png" />
+        <td class="center status"><a href="#tests_sahi.ta">         <img src="public/images/Circle_Green.png" />
  </a></td>
         <td>
-                <a href="#tests_setup.ta">setup.ta</a>
+                <a href="#tests_sahi.ta">sahi.ta</a>
         </td>
         <td>        Success
 </td>
         <td>
-                2,09
-        </td>
-    </tr>
-    <tr>
-        <td class="center status"><a href="#tests_first-test.ta">         <img src="public/images/Circle_Green.png" />
- </a></td>
-        <td>
-                <a href="#tests_first-test.ta">first-test.ta</a>
-        </td>
-        <td>        Success
-</td>
-        <td>
-                0,041
-        </td>
-    </tr>
-    <tr>
-        <td class="center status"><a href="#tests_teardown.ta">         <img src="public/images/Circle_Green.png" />
- </a></td>
-        <td>
-                <a href="#tests_teardown.ta">teardown.ta</a>
-        </td>
-        <td>        Success
-</td>
-        <td>
-                0
+                8,155
         </td>
     </tr>
                 </tbody>
@@ -146,7 +153,7 @@ tests
         <div class="script-header">
             <h3>
                         <img src="public/images/Circle_Green.png" />
-<a id="tests_setup.ta"></a> setup.ta
+<a id="tests_sahi.ta"></a> sahi.ta
             </h3>
         </div>
         <div class="script-content">
@@ -154,7 +161,7 @@ tests
             <div class="note">
                 <span>Status:&nbsp;</span>        Success
 <br/>
-                <span>Time (s):&nbsp;</span>2,09
+                <span>Time (s):&nbsp;</span>8,155
             </div>
     
             <table class="w100 striped">
@@ -174,152 +181,10 @@ tests
         <img src="public/images/Circle_Green.png" />
         </td>
         <td>
-            <div class="col">LOAD seleniumConf.properties AS seleniumConf.file</div>
-        </td>
-        <td class="txtcenter instruction-line">
-            1
-        </td>
-    </tr>
-    <tr class="a">
-        <td class="center status">
-        <img src="public/images/Circle_Green.png" />
-        </td>
-        <td>
-            <div class="col">CONVERT seleniumConf.file TO configuration.selenium AS seleniumConf</div>
+            <div class="col"># EXECUTE_SAHI sahi-tutorial.sah ON samplehttp USING sahiConf.properties</div>
         </td>
         <td class="txtcenter instruction-line">
             2
-        </td>
-    </tr>
-    <tr class="a">
-        <td class="center status">
-        <img src="public/images/Circle_Green.png" />
-        </td>
-        <td>
-            <div class="col">EXECUTE launch WITH seleniumConf AS seleniumServer</div>
-        </td>
-        <td class="txtcenter instruction-line">
-            3
-        </td>
-    </tr>
-                    
-                </tbody>
-            </table>
-            <br/>
-        </div>
-    </div>
-    <div class="script-link">
-        <a href="#header">[Back to top]</a>&nbsp;<a href="#tests">[Back to tests]</a>
-    </div>
-    
-    <div class="script">
-        <div class="script-header">
-            <h3>
-                        <img src="public/images/Circle_Green.png" />
-<a id="tests_first-test.ta"></a> first-test.ta
-            </h3>
-        </div>
-        <div class="script-content">
-    
-            <div class="note">
-                <span>Status:&nbsp;</span>        Success
-<br/>
-                <span>Time (s):&nbsp;</span>0,041
-            </div>
-    
-            <table class="w100 striped">
-                <thead>
-                    <tr class="table-header">
-                        <th colspan="2" class="big">Test steps</th>
-                        <th class="w50p txtcenter">Line</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td colspan="3"><strong>SETUP :</strong></td>
-                        </tr>
-    <tr class="a">
-        <td class="center status">
-        <img src="public/images/Circle_Green.png" />
-        </td>
-        <td>
-            <div class="col">LOAD sample-resource.txt AS resource</div>
-        </td>
-        <td class="txtcenter instruction-line">
-            9
-        </td>
-    </tr>
-    <tr class="a">
-        <td class="center status">
-        </td>
-        <td>
-            <div class="col">// here we test the macro defined in shortcuts/sample_shortcut.macro. Note that none of the instructions here are case sensitive :</div>
-        </td>
-        <td class="txtcenter instruction-line">
-            11
-        </td>
-    </tr>
-                
-                        <tr>
-                            <td colspan="3"><strong>TEST :</strong></td>
-                        </tr>
-    <tr class="a">
-        <td class="center status">
-        <img src="public/images/Circle_Green.png" />
-        </td>
-        <td>
-            <div class="col">#  LOAD sample-dataset.xml TO XML DATASET dataset</div>
-        </td>
-        <td class="txtcenter instruction-line">
-            15
-        </td>
-    </tr>
-                    
-                </tbody>
-            </table>
-            <br/>
-        </div>
-    </div>
-    <div class="script-link">
-        <a href="#header">[Back to top]</a>&nbsp;<a href="#tests">[Back to tests]</a>
-    </div>
-    
-    <div class="script">
-        <div class="script-header">
-            <h3>
-                        <img src="public/images/Circle_Green.png" />
-<a id="tests_teardown.ta"></a> teardown.ta
-            </h3>
-        </div>
-        <div class="script-content">
-    
-            <div class="note">
-                <span>Status:&nbsp;</span>        Success
-<br/>
-                <span>Time (s):&nbsp;</span>0
-            </div>
-    
-            <table class="w100 striped">
-                <thead>
-                    <tr class="table-header">
-                        <th colspan="2" class="big">Test steps</th>
-                        <th class="w50p txtcenter">Line</th>
-                    </tr>
-                </thead>
-                <tbody>
-                
-                        <tr>
-                            <td colspan="3"><strong>TEST :</strong></td>
-                        </tr>
-    <tr class="a">
-        <td class="center status">
-        <img src="public/images/Circle_Green.png" />
-        </td>
-        <td>
-            <div class="col">EXECUTE cleanup WITH seleniumServer AS ignoredResource</div>
-        </td>
-        <td class="txtcenter instruction-line">
-            1
         </td>
     </tr>
                     
@@ -337,7 +202,7 @@ tests
         
     </div>
     <div class="footer txtcenter">
-        <p>Generated by Squash TA&copy; on 04/14/2015 14:24</p>
+        <p>Generated by Squash TA&copy; on 04/15/2015 13:22</p>
     </div>
 </body>
 </html>

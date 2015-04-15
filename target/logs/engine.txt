@@ -11,10 +11,5 @@
 [INFO] org.squashtest.ta.backbone.init.ComponentManifestParser - Loading plugin configuration for: org.squashtest.ta.plugin.local.process
 [WARN] org.squashtest.ta.link.SquashTMCallbackEventConfigurer - The endpoint URL is set to its default value: "file://dev/null", so the call back is not activated
 [INFO] org.squashtest.ta.backbone.engine.impl.EcosystemRunnerImpl - Beginning execution of ecosystem tests
-[INFO] org.squashtest.ta.backbone.engine.impl.TestRunnerImpl - Beginning execution of test setup.ta
-[WARN] org.squashtest.ta.plugin.selenium.converters.FileToSeleniumConfiguration - 0 irrelevant configuration resources ignored (this converter takes none).
-[INFO] stdout.seleniumServer.0 - stdout logger daemon started (switch the 'stdout.seleniumServer' logger category to level DEBUG to see more)
-[INFO] org.squashtest.ta.plugin.selenium.library.SeleniumServerManager - Selenium server : proxy ready for use
-[INFO] org.squashtest.ta.backbone.engine.impl.TestRunnerImpl - Beginning execution of test first-test.ta
-[INFO] org.squashtest.ta.backbone.engine.impl.TestRunnerImpl - Beginning execution of test teardown.ta
+[INFO] org.squashtest.ta.backbone.engine.impl.TestRunnerImpl - Beginning execution of test sahi.ta
 [INFO] org.squashtest.ta.core.tools.io.TempFileUtils - All the files from C:\Users\836D~1\AppData\Local\Temp\Squash_TA were properly deleted.
