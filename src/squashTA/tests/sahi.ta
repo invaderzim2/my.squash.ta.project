@@ -1,2 +1,2 @@
 test :
-# EXECUTE_SAHI sahi-tutorial.sah ON samplehttp USING sahiConf.properties
+# EXECUTE_SAHI mireyn.sah ON samplehttp USING sahiConf.properties

@@ -1,0 +1,11 @@
+_navigateTo("https://www.mireyn.ru/");
+_click(_link("Медиа"));
+_click(_link("Новости"));
+_click(_link("Библиотека"));
+_assertEqual("Ждите в следующем обновлении", _lastAlert());
+_assertEqual("Ждите в следующем обновлении", _lastAlert());
+_doubleClick(_link("Библиотека"));
+_click(_link("Форум"));
+_setValue(_textbox("search_term"), "test ");
+_click(_link("Библиотека"));
+_assertEqual("Ждите в следующем обновлении", _lastAlert());
