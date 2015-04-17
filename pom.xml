@@ -34,7 +34,6 @@
                 <!--        <version>5.1.19</version> -->
                 <!--     </dependency> -->
 				<!-- </dependencies> -->
-				
 				<!-- Under here is the Squash TA framework default configuration -->
 				<configuration>
                     
