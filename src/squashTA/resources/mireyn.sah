@@ -1,4 +1,3 @@
-_navigateTo("https://www.mireyn.ru/");
 _click(_link("Медиа"));
 _click(_link("Новости"));
 _click(_link("Библиотека"));
