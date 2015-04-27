@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite time="78.566" failures="0" tests="1" name="tests" >
-  <testcase time="78.556" classname="tests" name="mireyn.ta" />
+<testsuite time="68.19" failures="0" tests="1" name="tests" >
+  <testcase time="68.17" classname="tests" name="InOutOpera.ta" />
 </testsuite>

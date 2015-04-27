@@ -11,5 +11,5 @@
 [INFO] org.squashtest.ta.backbone.init.ComponentManifestParser - Loading plugin configuration for: org.squashtest.ta.plugin.local.process
 [WARN] org.squashtest.ta.link.SquashTMCallbackEventConfigurer - The endpoint URL is set to its default value: "file://dev/null", so the call back is not activated
 [INFO] org.squashtest.ta.backbone.engine.impl.EcosystemRunnerImpl - Beginning execution of ecosystem tests
-[INFO] org.squashtest.ta.backbone.engine.impl.TestRunnerImpl - Beginning execution of test mireyn.ta
+[INFO] org.squashtest.ta.backbone.engine.impl.TestRunnerImpl - Beginning execution of test InOutOpera.ta
 [INFO] org.squashtest.ta.core.tools.io.TempFileUtils - All the files from C:\Users\836D~1\AppData\Local\Temp\Squash_TA were properly deleted.
