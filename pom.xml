@@ -34,8 +34,8 @@
                 <!--        <version>5.1.19</version> -->
                 <!--     </dependency> -->
 				<!-- </dependencies> -->
-				<dependencies>
-        <dependency>
+	<dependencies>
+          <dependency>
           <groupId>org.seleniumhq.selenium</groupId>
           <artifactId>selenium-server</artifactId>
           <version>2.45.0</version>
@@ -61,7 +61,7 @@
           <version>2.45.0</version>
          </dependency>
 
-				</dependencies>
+	</dependencies>
 				<!-- Under here is the Squash TA framework default configuration -->
 				<configuration>
                     
