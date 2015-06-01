@@ -18,7 +18,9 @@ public class InOutChrome {
   public void setUp() throws Exception {
 //    driver = new FirefoxDriver();
 //	System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
-	System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver.exe").toString().substring(6));
+		if (System.getProperty("user.home").contains("C:\\Users\\")) {
+			System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver.exe").toString().substring(6));
+			} else { System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(6)); }
 	driver = new ChromeDriver();
 //	driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
 //	driver.get("http://www.google.com");

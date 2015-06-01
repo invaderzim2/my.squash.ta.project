@@ -21,7 +21,9 @@ public class Tutorial {
 //    driver = new FirefoxDriver();
 	
 //	System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
+	if (System.getProperty("user.home").contains("C:\\Users\\")) {
 	System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver.exe").toString().substring(6));
+	} else { System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(6)); }
 	driver = new ChromeDriver();
 //	driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
 //	driver.get("http://www.google.com");
@@ -103,10 +105,10 @@ driver.get(baseUrl);
 Actions builder = new Actions(driver);  
 for (int i=1;i<100;i++) {
 
-	if (isElementPresent(By.xpath("//div/div[contains(text(),'Введите ответ:')]"))){
+	if (isElementPresent(By.xpath("//div/div[contains(text(),'\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043E\u0442\u0432\u0435\u0442:')]"))){
 		driver.findElement(By.xpath("//div/input")).sendKeys("Wolf");
-		builder.moveToElement(driver.findElement(By.xpath("//div[text()='ОК']//..//div[@class='loader']"))).click().build().perform();
-	}else if(isElementPresent(By.xpath("//div[text()='Тренировка боем']"))){
+		builder.moveToElement(driver.findElement(By.xpath("//div[text()='\u041E\u041A']//..//div[@class='loader']"))).click().build().perform();
+	}else if(isElementPresent(By.xpath("//div[text()='\u0422\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0430 \u0431\u043E\u0435\u043C']"))){
 		break;
 	} else {
 	for (int second = 0;; second++) {
@@ -117,20 +119,17 @@ for (int i=1;i<100;i++) {
 	}
 	Thread.sleep(1000);
 	try {
-			if (isElementPresent(By.xpath("//div[text()='Двойным нажатием - используйте предмет']"))) {
+			if (isElementPresent(By.xpath("//div[text()='\u0414\u0432\u043E\u0439\u043D\u044B\u043C \u043D\u0430\u0436\u0430\u0442\u0438\u0435\u043C - \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442']"))) {
 				builder.moveToElement(driver.findElement(By.cssSelector(".targetArea"))).doubleClick().build().perform();
-			}else if(isElementPresent(By.xpath("//div[text()='Товары находятся в рамках, ниже обозначена их цена. Нажатием на товар выберите его в магазине']"))){
+			}else if(isElementPresent(By.xpath("//div[text()='\u0422\u043E\u0432\u0430\u0440\u044B \u043D\u0430\u0445\u043E\u0434\u044F\u0442\u0441\u044F \u0432 \u0440\u0430\u043C\u043A\u0430\u0445, \u043D\u0438\u0436\u0435 \u043E\u0431\u043E\u0437\u043D\u0430\u0447\u0435\u043D\u0430 \u0438\u0445 \u0446\u0435\u043D\u0430. \u041D\u0430\u0436\u0430\u0442\u0438\u0435\u043C \u043D\u0430 \u0442\u043E\u0432\u0430\u0440 \u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0435\u0433\u043E \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435']"))){
 				builder.moveToElement(driver.findElement(By.cssSelector(".targetArea")),50,60).click().build().perform();
-			}else if(isElementPresent(By.xpath("//div[text()='Вы удачно совершили свою первую покупку']"))){
-				builder.moveToElement(driver.findElement(By.xpath("//div[text()='ОК']//..//div[@class='loader']"))).click().build().perform();
-			}else if(isElementPresent(By.xpath("//div/div[contains(text(),'Введите ответ:')]"))){
-				driver.findElement(By.xpath("//div/input")).sendKeys("Wolf");
-				builder.moveToElement(driver.findElement(By.xpath("//div[text()='ОК']//..//div[@class='loader']"))).click().build().perform();
+			}else if(isElementPresent(By.xpath("//div[text()='\u0412\u044B \u0443\u0434\u0430\u0447\u043D\u043E \u0441\u043E\u0432\u0435\u0440\u0448\u0438\u043B\u0438 \u0441\u0432\u043E\u044E \u043F\u0435\u0440\u0432\u0443\u044E \u043F\u043E\u043A\u0443\u043F\u043A\u0443']"))){
+				builder.moveToElement(driver.findElement(By.xpath("//div[text()='\u041E\u041A']//..//div[@class='loader']"))).click().build().perform();
 		} else {
 	builder.moveToElement(driver.findElement(By.cssSelector(".targetArea"))).click().build().perform(); }
 	} catch (Exception e) {}
 }
-if(!isElementPresent(By.xpath("//div[text()='Тренировка боем']"))) fail("Scenario not finished");
+if(!isElementPresent(By.xpath("//div[text()='\u0422\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0430 \u0431\u043E\u0435\u043C']"))) fail("Scenario not finished");
   }
 
   @After
