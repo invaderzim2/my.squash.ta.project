@@ -22,8 +22,13 @@ public class Tutorial {
 	
 //	System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
 	if (System.getProperty("user.home").contains("C:\\Users\\")) {
-	System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver.exe").toString().substring(6));
-	} else { System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(6)); }
+		System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver.exe").toString().substring(6));
+	} else { 
+		String s=getClass().getResource("chromedriver").toString().substring(6);
+		File file = new File(s);
+		file.setExecutable(true, false);
+		System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(6));
+	}
 	driver = new ChromeDriver();
 //	driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
 //	driver.get("http://www.google.com");
