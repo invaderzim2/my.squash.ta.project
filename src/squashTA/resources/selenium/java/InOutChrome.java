@@ -22,11 +22,11 @@ public class InOutChrome {
 		if (System.getProperty("user.home").contains("C:\\Users\\")) {
 			System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver.exe").toString().substring(6));
 		} else { 
-//			String s=getClass().getResource("chromedriver").toString().substring(6);
-//			File file = new File(s);
-//			file.setExecutable(true, false);
-//			System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(6));
-			System.setProperty("webdriver.chrome.driver", "/src/squashTA/resources/selenium/resources/chromedriver");
+			String s=getClass().getResource("chromedriver").toString().substring(5);
+			File file = new File(s);
+			file.setExecutable(true, false);
+			System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(6));
+//			System.setProperty("webdriver.chrome.driver", "/src/squashTA/resources/selenium/resources/chromedriver");
 		}
 	driver = new ChromeDriver();
 //	driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
