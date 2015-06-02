@@ -44,7 +44,7 @@ public class InOutChrome {
     	try { if (isElementPresent(By.id("open-login"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-    Thread.sleep(1000);
+    Thread.sleep(5000);
     driver.findElement(By.id("open-login")).click();
     Thread.sleep(1000);
     driver.findElement(By.id("TopLoginForm_email")).clear();
@@ -57,21 +57,21 @@ public class InOutChrome {
     	try { if ("7@7.ru".equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-    Thread.sleep(1000);
+    Thread.sleep(3000);
     driver.findElement(By.id("open-register")).click();
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
     	try { if (isElementPresent(By.cssSelector("div.buttonExit"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-    Thread.sleep(1000);
+    Thread.sleep(3000);
     driver.findElement(By.cssSelector("div.buttonExit")).click();
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
     	try { if ("7@7.ru".equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-    Thread.sleep(1000);
+    Thread.sleep(3000);
     driver.findElement(By.id("close-login")).click();
   }
 
