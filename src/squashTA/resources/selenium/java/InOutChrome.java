@@ -94,6 +94,7 @@ try{
 	  FileOutputStream fos = new FileOutputStream("target/squashTA/screenshots/index.html"); 
 	  OutputStreamWriter out = new OutputStreamWriter(fos, "UTF-8");
 	  out.write("<!DOCTYPE HTML><html><head><meta charset=\"utf-8\"><title>Тег IMG</title></head><body><p>");
+	  out.write("Error on: <br>"+e+"</p> <br> <p>");
 	  out.write(MyLog);
 	  out.write("</p> <br> <p>Screenshot on fail: <br> <a href=\"lorem.html\"><img src=\"screenshot.png\" alt=\"lorem\"></a></p></body></html>");
 	  out.close();
