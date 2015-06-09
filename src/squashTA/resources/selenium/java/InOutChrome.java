@@ -46,8 +46,8 @@ public class InOutChrome {
     	Thread.sleep(1000);
     }
     File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-    FileUtils.copyFile(scrFile, new File("target/squashTA/screenshot.png"));
-    fail("<img src=\"" + "../../../../public/images/screenshot.png" + "\" alt=\"loool\">");
+    FileUtils.copyFile(scrFile, new File("target/squashTA/screenshots/screenshot.png"));
+    fail("<img src=\"" + "../../../../Screenshots/screenshot.png" + "\" alt=\"loool\">");
     
     driver.findElement(By.id("open-login")).click();
     driver.findElement(By.id("TopLoginForm_email")).clear();
