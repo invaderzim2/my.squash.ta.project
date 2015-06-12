@@ -116,7 +116,7 @@ Thread.sleep(1000);
 
 assertEquals("success", closeAlertAndGetItsText());
 
-Report.WriteToLog("Begin the scenario: tutorial(1-7)");
+Report.WriteToLog("Begin the scenario: tutorial(1-9)");
 
 Thread.sleep(1000);
 
@@ -169,12 +169,12 @@ while (i<100) {
 		mouse.mouseMove(coor);
 		builder.click().build().perform();
 		System.out.println(element.getLocation().x + ":" + element.getLocation().y);
-		builder.moveToElement(element).click().build().perform();
+		builder.moveToElement(element).click().build().perform();*/
 //		mouse.mouseMove(hoverItem.getCoordinates());
 //		mouse.click(hoverItem.getCoordinates());
 //		System.out.println("Click targetArea");
-//		try {builder.moveToElement(driver.findElement(By.cssSelector(".targetArea"))).click().build().perform(); System.out.println("Click targetArea");} catch (Exception e) {Report.WriteToLog("Missed targetArea"); System.out.println("Missed targetArea"); i=i-1;}*/
-		try {driver.findElement(By.cssSelector(".targetArea")).click(); System.out.println("Click targetArea");} catch (Exception e) {Report.WriteToLog("Missed targetArea"); i=i-1;}
+		try {builder.moveToElement(driver.findElement(By.cssSelector(".targetArea"))).click().build().perform();} catch (Exception e) {Report.WriteToLog("Missed targetArea"); i=i-1;}
+//		try {driver.findElement(By.cssSelector(".targetArea")).click(); System.out.println("Click targetArea");} catch (Exception e) {Report.WriteToLog("Missed targetArea"); i=i-1;}
 	}
 
 }
