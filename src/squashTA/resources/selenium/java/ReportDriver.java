@@ -24,6 +24,7 @@ public class ReportDriver {
 
 	}
 	public void WriteToLog(String s) {
+		  System.out.println(new Date().toString().substring(10,19)+": "+s);
 		  MyLog=MyLog+"<br>"+new Date().toString().substring(10,19)+": "+s;
 	}
 }
