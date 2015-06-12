@@ -33,8 +33,8 @@ public class Tutorial {
 		System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(5));
 //		System.setProperty("webdriver.chrome.driver", "/src/squashTA/resources/selenium/resources/chromedriver");
 	}
-//    driver = new FirefoxDriver();
-	driver = new ChromeDriver();
+    driver = new FirefoxDriver();
+//	driver = new ChromeDriver();
 //	driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
 //	driver.get("http://www.google.com");
 	baseUrl = "https://game-qa.sw.co.ua/";
