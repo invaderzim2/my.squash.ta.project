@@ -8,17 +8,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import java.io.*;
-import org.apache.commons.io.FileUtils;
-import junit.framework.TestResult;
-import junit.framework.AssertionFailedError;
-import java.util.Scanner;
 
 public class InOutChrome {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
-  private String MyLog = "Steps:";
+  private ReportDriver Report = new ReportDriver();
+//  private String MyLog = "Steps:";
 
   @Before
   public void setUp() throws Exception {
@@ -52,11 +49,8 @@ try{
     	Thread.sleep(1000);
     }
     
-//	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//	FileUtils.copyFile(scrFile, new File("target/squashTA/screenshots/screenshot.png"));
-//	System.err.println("<img src=\"" + "../../../../Screenshots/screenshot.png" + "\" alt=\"loool\">");
     
-	WriteToLog("try to open-login");
+    Report.WriteToLog("try to open-login");
     driver.findElement(By.id("open-login")).click();
     driver.findElement(By.id("TopLoginForm_email")).clear();
     driver.findElement(By.id("TopLoginForm_email")).sendKeys("7@7.ru");
@@ -74,7 +68,7 @@ try{
     	try { if (isElementPresent(By.cssSelector("div.buttonExit"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-    WriteToLog("try to click button");
+    Report.WriteToLog("try to click button");
     driver.findElement(By.cssSelector("div.buttonExit")).click();
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
@@ -84,47 +78,15 @@ try{
     
     
 //	fail("<a href=\"../../../../Screenshots/index.html\">LOOOOL</a>");
-	
     driver.findElement(By.id("close-login")).click();
   }
-	catch (Exception e) {
+	catch (Throwable e) {
+		Report.PrintLog(driver,e);
 
-	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	FileUtils.copyFile(scrFile, new File("target/squashTA/screenshots/screenshot.png"));
-	  FileOutputStream fos = new FileOutputStream("target/squashTA/screenshots/index.html"); 
-	  OutputStreamWriter out = new OutputStreamWriter(fos, "UTF-8");
-	  out.write("<!DOCTYPE HTML><html><head><meta charset=\"utf-8\"><title>Тег IMG</title></head><body><p>");
-	  out.write("Error on: <br>"+e+"</p> <br> <p>");
-	  out.write(MyLog);
-	  out.write("</p> <br> <p>Screenshot on fail: <br> <a href=\"lorem.html\"><img src=\"screenshot.png\" alt=\"lorem\"></a></p></body></html>");
-	  out.close();
-	  fail("<a href=\"../../../../Screenshots/index.html\">See_Full_Test_Result</a>");
 	}
   }
 
   @After
-/*  public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
-	  if (testResult.getStatus() == ITestResult.FAILURE) {
-		  File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		  FileUtils.copyFile(scrFile, new File("target/squashTA/screenshots/screenshot.png"));
-		  //fail("<img src=\"" + "../../../../Screenshots/screenshot.png" + "\" alt=\"loool\">");
-		  FileOutputStream fos = new FileOutputStream("target/squashTA/screenshots/index.html"); 
-		  OutputStreamWriter out = new OutputStreamWriter(fos, "UTF-8");
-		  out.write("<!DOCTYPE HTML><html><head><meta charset=\"utf-8\"><title>Тег IMG</title></head><body> <p><a href=\"lorem.html\"><img src=\"../../../../Screenshots/screenshot.png\" alt=\"lorem\"></a>Lorem ipsum dolor sit amet...</p></body></html>");
-		  out.close();
-	  }
-  }
-*/
-  
-/*  public void takeScreenShotOnFailure(TestResult testResult) throws Exception {
-	  if (!testResult.wasSuccessful())
-	  {
-		  File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		  FileUtils.copyFile(scrFile, new File("target/squashTA/screenshots/screenshot.png"));
-		  testResult.addFailure(this, new AssertionFailedError("<img src=\"" + "../../../../Screenshots/screenshot.png" + "\" alt=\"loool\">"));
-	  }
-  }
-*/  
   
   public void tearDown() throws Exception {
     driver.quit();
@@ -151,11 +113,11 @@ try{
       return false;
     }
   }
-
+/*
   private void WriteToLog(String s) {
 	  MyLog=MyLog+"<br>"+s;
   }
-  
+*/  
   private String closeAlertAndGetItsText() {
     try {
       Alert alert = driver.switchTo().alert();
