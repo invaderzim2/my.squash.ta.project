@@ -1,12 +1,9 @@
 SETUP :
 
-LOAD ../params/placeholder.properties AS placeholder.file
-CONVERT placeholder.file TO properties(structured) AS placeholder.properties
-
 TEST :
 
 LOAD selenium AS file0.file
-CONVERT file0.file TO file(param) USING placeholder.properties AS file1.file
+CONVERT file0.file TO file(param) USING context_script_params AS file1.file
 CONVERT file1.file TO script.java(compile) AS file2.compiled
 CONVERT file2.compiled TO script.java.selenium2(script) USING $(Tutorial) AS file3.selenium
 EXECUTE execute WITH file3.selenium AS file4.result
