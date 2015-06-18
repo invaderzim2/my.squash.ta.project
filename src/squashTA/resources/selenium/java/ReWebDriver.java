@@ -25,7 +25,7 @@ public class ReWebDriver {
 		Robot r= new Robot();
 		r.mouseMove(x, y);
 		r.mousePress(InputEvent.BUTTON1_MASK);
-		r.delay(100);
+		r.delay(30);
 		r.mouseRelease(InputEvent.BUTTON1_MASK);
 		return true;
 		} catch (Exception e) { 
