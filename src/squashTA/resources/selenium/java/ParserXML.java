@@ -50,7 +50,7 @@ public class ParserXML {
 		if (serverName.equals("QA")) {return "https://game-qa.sw.co.ua/";}
 		if (serverName.equals("UAT")) {return "https://game-uat.sw.co.ua/";}
 		if (serverName.equals("PROD")) {return "https://game.mireyn.ru/";}
-		return "No such server";
+		return serverName;
 	}
 	public void getData() throws Exception {
 		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
