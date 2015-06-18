@@ -177,7 +177,7 @@ while (i<100) {
 			Report.WriteToLog(NextQuest);
 		} } catch (Exception ex) {Report.WriteToLog("Missed questItem");}
 		}
-	Thread.sleep(1000);
+	Thread.sleep(900);
 }
 
 if(!isElementPresent(By.xpath("//div[text()='\u041D\u0430\u0436\u0430\u0442\u0438\u0435\u043C \"\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F\" \u0432\u044B \u043F\u043E\u0434\u0430\u0434\u0438\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u043D\u0430 \u0443\u0447\u0430\u0441\u0442\u0438\u0435 \u0432 \u0431\u043E\u044F\u0445 \u0441 \u0434\u0440\u0443\u0433\u0438\u043C\u0438 \u0438\u0433\u0440\u043E\u043A\u0430\u043C\u0438']"))) fail("Scenario not finished");
