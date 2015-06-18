@@ -1,7 +1,5 @@
 import java.io.*;
 import org.apache.commons.io.FileUtils;
-import junit.framework.TestResult;
-import junit.framework.AssertionFailedError;
 import java.util.Scanner;
 import org.openqa.selenium.*;
 import java.util.Date;
@@ -9,7 +7,7 @@ import java.util.Date;
 public class ReportDriver {
 	private String MyLog = "Test log:";
 	public void PrintLog(WebDriver driver, Throwable e) throws Exception {
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		try {File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(scrFile, new File("target/squashTA/screenshots/screenshot.png"));
 		  FileOutputStream fos = new FileOutputStream("target/squashTA/screenshots/index.html"); 
 		  Writer out = new OutputStreamWriter(fos, "UTF-8");
@@ -19,7 +17,7 @@ public class ReportDriver {
 		  out.write("</pre> <br> <p>");
 		  out.write(MyLog+"<br> -----------------------FAIL-----------------------");
 		  out.write("</p> <br> <p>Screenshot on fail: <br> <a href=\"lorem.html\"><img src=\"screenshot.png\" alt=\"lorem\"></a></p></body></html>");
-		  out.close();
+		  out.close(); } catch (Exception ex) {}
 		  throw new Exception ("<a href=\"../../../../Screenshots/index.html\">See_Full_Test_Result</a>", e);
 
 	}

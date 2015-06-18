@@ -7,40 +7,50 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import java.io.*;
+import java.io.File;
+
 
 public class InOutChrome {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
-  private ReportDriver Report = new ReportDriver();
-//  private String MyLog = "Steps:";
+  private ParserXML parser = new ParserXML();
+//  private String browser = "chrome";
 
   @Before
   public void setUp() throws Exception {
 //    driver = new FirefoxDriver();
+	
+//		parser.getData();
+		
+//		browser = parser.setBrowser(browser);
+		
+			if (System.getProperty("user.home").contains("C:\\Users\\")) {
+//				System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver.exe").toString().substring(6));
+				System.setProperty("webdriver.chrome.driver", "src/squashTA/resources/chromedriver.exe");
+			} else {
+//				String s=getClass().getResource("chromedriver").toString().substring(5);
+//				File file = new File(s);
+//				file.setExecutable(true, false);
+//				System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(5));
+				System.setProperty("webdriver.chrome.driver", "src/squashTA/resources/chromedriver");
+			}
+			driver = new ChromeDriver();
+
+	parser.getData();
 //	System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
-		if (System.getProperty("user.home").contains("C:\\Users\\")) {
-			System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver.exe").toString().substring(6));
-		} else { 
-			String s=getClass().getResource("chromedriver").toString().substring(5);
-			File file = new File(s);
-			file.setExecutable(true, false);
-			System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(5));
-//			System.setProperty("webdriver.chrome.driver", "/src/squashTA/resources/selenium/resources/chromedriver");
-		}
-	driver = new ChromeDriver();
+//	driver = new ChromeDriver();
 //	driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
 //	driver.get("http://www.google.com");
-    baseUrl = "https://www-uat.sw.co.ua/";
-    driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+//    baseUrl = "https://www-uat.sw.co.ua/";
+	baseUrl = parser.setServer("https://www-uat.sw.co.ua/");
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
   public void testInOutChrome() throws Exception {
 	  
-try{
 	driver.manage().window().maximize();
 	driver.get(baseUrl);
     for (int second = 0;; second++) {
@@ -48,46 +58,41 @@ try{
     	try { if (isElementPresent(By.id("open-login"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-    
-    
-    Report.WriteToLog("try to open-login");
     driver.findElement(By.id("open-login")).click();
     driver.findElement(By.id("TopLoginForm_email")).clear();
-    driver.findElement(By.id("TopLoginForm_email")).sendKeys("7@7.ru");
+//    driver.findElement(By.id("TopLoginForm_email")).sendKeys("7@7.ru");
+//    driver.findElement(By.id("TopLoginForm_email")).sendKeys("${IT_CUF_login}");
+//    driver.findElement(By.id("TopLoginForm_email")).sendKeys(name);
+    driver.findElement(By.id("TopLoginForm_email")).sendKeys(parser.setLogin("6@6.ru"));
     driver.findElement(By.id("TopLoginForm_password")).clear();
-    driver.findElement(By.id("TopLoginForm_password")).sendKeys("123456");
+    driver.findElement(By.id("TopLoginForm_password")).sendKeys(parser.setPassword("123456"));
     driver.findElement(By.id("login")).click();
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if ("7@7.ru".equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
+//    	try { if ("7@7.ru".equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
+    	try { if (parser.setLogin("6@6.ru").equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
+
     driver.findElement(By.id("open-register")).click();
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
     	try { if (isElementPresent(By.cssSelector("div.buttonExit"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-    Report.WriteToLog("try to click button");
+
     driver.findElement(By.cssSelector("div.buttonExit")).click();
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
-    	try { if ("7@7.ru".equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
+//    	try { if ("7@7.ru".equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
+    	try { if (parser.setLogin("6@6.ru").equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-    
-    
-//	fail("<a href=\"../../../../Screenshots/index.html\">LOOOOL</a>");
-    driver.findElement(By.id("close-login")).click();
-  }
-	catch (Throwable e) {
-		Report.PrintLog(driver,e);
 
-	}
+    driver.findElement(By.id("close-login")).click();
   }
 
   @After
-  
   public void tearDown() throws Exception {
     driver.quit();
     String verificationErrorString = verificationErrors.toString();
@@ -113,11 +118,7 @@ try{
       return false;
     }
   }
-/*
-  private void WriteToLog(String s) {
-	  MyLog=MyLog+"<br>"+s;
-  }
-*/  
+
   private String closeAlertAndGetItsText() {
     try {
       Alert alert = driver.switchTo().alert();
