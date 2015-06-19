@@ -155,6 +155,8 @@ while (i<140) {
 		} else if (isElementPresent(By.cssSelector(".targetArea"))) break;
 		Thread.sleep(200);
 	}
+	if(isElementPresent(By.xpath("//div[text()='\u041D\u0430\u0436\u0430\u0442\u0438\u0435\u043C \"\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F\" \u0432\u044B \u043F\u043E\u0434\u0430\u0434\u0438\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u043D\u0430 \u0443\u0447\u0430\u0441\u0442\u0438\u0435 \u0432 \u0431\u043E\u044F\u0445 \u0441 \u0434\u0440\u0443\u0433\u0438\u043C\u0438 \u0438\u0433\u0440\u043E\u043A\u0430\u043C\u0438']"))){
+		break; }
 	try {el = driver.findElement(By.cssSelector(".targetArea")); } catch (Exception exx) {Report.WriteToLog("Missed targetArea"); i=i-1; continue;};
 	if (!rdriver.rClick(el)) {Report.WriteToLog("Missed targetArea"); i=i-1;}
 	if (isElementPresent(By.xpath("//div[text()='\u0414\u0432\u043E\u0439\u043D\u044B\u043C \u043D\u0430\u0436\u0430\u0442\u0438\u0435\u043C - \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442']"))) {
@@ -163,9 +165,6 @@ while (i<140) {
 		if (!rdriver.rClick(el,50,60)) {Report.WriteToLog("Missed targetArea"); i=i-1;}
 	}else if(isElementPresent(By.xpath("//div[text()='\u0412\u044B \u0443\u0434\u0430\u0447\u043D\u043E \u0441\u043E\u0432\u0435\u0440\u0448\u0438\u043B\u0438 \u0441\u0432\u043E\u044E \u043F\u0435\u0440\u0432\u0443\u044E \u043F\u043E\u043A\u0443\u043F\u043A\u0443']"))){
 		if (!rdriver.rClick(driver.findElement(By.xpath("//div[text()='\u041E\u041A']//..//div[@class='loader']")))) {Report.WriteToLog("Missed targetArea"); i=i-1;}
-	}else if(isElementPresent(By.xpath("//div[text()='\u041D\u0430\u0436\u0430\u0442\u0438\u0435\u043C \"\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F\" \u0432\u044B \u043F\u043E\u0434\u0430\u0434\u0438\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u043D\u0430 \u0443\u0447\u0430\u0441\u0442\u0438\u0435 \u0432 \u0431\u043E\u044F\u0445 \u0441 \u0434\u0440\u0443\u0433\u0438\u043C\u0438 \u0438\u0433\u0440\u043E\u043A\u0430\u043C\u0438']"))){
-		break;
-//	} else {
 	}
 	if (isElementPresent(By.cssSelector("div.questItem"))){
 		try { String s = driver.findElement(By.cssSelector("div.questItem")).getAttribute("data-id");
