@@ -247,11 +247,11 @@ while (i<210) {
 	}
 	if (NextQuest.equals("tutorial9")) break;
 	try { el = driver.findElement(By.cssSelector(".targetArea")); } catch (Exception exx) {Report.WriteToLog("Missed targetArea"); i=i-1; continue;}
-
+	if (!rdriver.rClick(el)) {Report.WriteToLog("Missed targetArea"); i=i-1;}
 	if (isElementPresent(By.xpath("//div[text()='\u0414\u0432\u043E\u0439\u043D\u044B\u043C \u043D\u0430\u0436\u0430\u0442\u0438\u0435\u043C - \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442']"))) {
 		if (!rdriver.rDoubleClick(el)) {Report.WriteToLog("Missed targetArea"); i=i-1;}
-	} else {
-		if (!rdriver.rClick(el)) {Report.WriteToLog("Missed targetArea"); i=i-1;} }
+	}
+
 	Thread.sleep(500);
 }
 
