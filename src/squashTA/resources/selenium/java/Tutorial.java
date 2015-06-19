@@ -51,7 +51,7 @@ public class Tutorial {
 	
 //	driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
 	baseUrl = parser.setServer("https://game-qa.sw.co.ua/");
-    driver.manage().timeouts().implicitlyWait(50, TimeUnit.MILLISECONDS);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.MILLISECONDS);
   }
 
   @Test
@@ -83,7 +83,7 @@ driver.findElement(By.id("search-input")).clear();
 driver.findElement(By.id("search-input")).sendKeys("Presetnt");
 driver.findElement(By.id("search-input")).sendKeys(Keys.ENTER);
 
-Thread.sleep(2000);
+Thread.sleep(1000);
 
 for (int second = 0;; second++) {
 	if (second >= 60) fail("timeout");
@@ -144,7 +144,7 @@ driver.get(baseUrl);
 	driver.findElement(By.cssSelector("body")).sendKeys(Keys.F11);
 	
 
-while (i<100) {
+while (i<140) {
 	i++;
 	Report.WriteToLog("Step#"+i);
 	for (int second = 0;; second++) {
@@ -156,7 +156,7 @@ while (i<100) {
 		Thread.sleep(200);
 	}
 	try {el = driver.findElement(By.cssSelector(".targetArea")); } catch (Exception exx) {Report.WriteToLog("Missed targetArea"); i=i-1; continue;};
-	
+	if (!rdriver.rClick(el)) {Report.WriteToLog("Missed targetArea"); i=i-1;}
 	if (isElementPresent(By.xpath("//div[text()='\u0414\u0432\u043E\u0439\u043D\u044B\u043C \u043D\u0430\u0436\u0430\u0442\u0438\u0435\u043C - \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442']"))) {
 		if (!rdriver.rDoubleClick(el)) {Report.WriteToLog("Missed targetArea"); i=i-1;}
 	}else if(isElementPresent(By.xpath("//div[text()='\u0422\u043E\u0432\u0430\u0440\u044B \u043D\u0430\u0445\u043E\u0434\u044F\u0442\u0441\u044F \u0432 \u0440\u0430\u043C\u043A\u0430\u0445, \u043D\u0438\u0436\u0435 \u043E\u0431\u043E\u0437\u043D\u0430\u0447\u0435\u043D\u0430 \u0438\u0445 \u0446\u0435\u043D\u0430. \u041D\u0430\u0436\u0430\u0442\u0438\u0435\u043C \u043D\u0430 \u0442\u043E\u0432\u0430\u0440 \u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0435\u0433\u043E \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435']"))){
@@ -165,10 +165,7 @@ while (i<100) {
 		if (!rdriver.rClick(driver.findElement(By.xpath("//div[text()='\u041E\u041A']//..//div[@class='loader']")))) {Report.WriteToLog("Missed targetArea"); i=i-1;}
 	}else if(isElementPresent(By.xpath("//div[text()='\u041D\u0430\u0436\u0430\u0442\u0438\u0435\u043C \"\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F\" \u0432\u044B \u043F\u043E\u0434\u0430\u0434\u0438\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u043D\u0430 \u0443\u0447\u0430\u0441\u0442\u0438\u0435 \u0432 \u0431\u043E\u044F\u0445 \u0441 \u0434\u0440\u0443\u0433\u0438\u043C\u0438 \u0438\u0433\u0440\u043E\u043A\u0430\u043C\u0438']"))){
 		break;
-	} else {
-
-		if (!rdriver.rClick(el)) {Report.WriteToLog("Missed targetArea"); i=i-1;}
-
+//	} else {
 	}
 	if (isElementPresent(By.cssSelector("div.questItem"))){
 		try { String s = driver.findElement(By.cssSelector("div.questItem")).getAttribute("data-id");
@@ -177,7 +174,7 @@ while (i<100) {
 			Report.WriteToLog(NextQuest);
 		} } catch (Exception ex) {Report.WriteToLog("Missed questItem");}
 		}
-	Thread.sleep(1000);
+	Thread.sleep(500);
 }
 
 if(!isElementPresent(By.xpath("//div[text()='\u041D\u0430\u0436\u0430\u0442\u0438\u0435\u043C \"\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F\" \u0432\u044B \u043F\u043E\u0434\u0430\u0434\u0438\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u043D\u0430 \u0443\u0447\u0430\u0441\u0442\u0438\u0435 \u0432 \u0431\u043E\u044F\u0445 \u0441 \u0434\u0440\u0443\u0433\u0438\u043C\u0438 \u0438\u0433\u0440\u043E\u043A\u0430\u043C\u0438']"))) fail("Scenario not finished");
@@ -232,7 +229,7 @@ driver.findElement(By.cssSelector("div#nextQuest")).click();
 Thread.sleep(2000);
 driver.findElement(By.cssSelector("div#takeQuest")).click();
 
-while (i<150) {
+while (i<210) {
 	i++;
 	Report.WriteToLog("Step#"+i);
 
@@ -256,7 +253,7 @@ while (i<150) {
 		if (!rdriver.rDoubleClick(el)) {Report.WriteToLog("Missed targetArea"); i=i-1;}
 	} else {
 		if (!rdriver.rClick(el)) {Report.WriteToLog("Missed targetArea"); i=i-1;} }
-	Thread.sleep(1000);
+	Thread.sleep(500);
 }
 
 if (!NextQuest.equals("tutorial9")) {
