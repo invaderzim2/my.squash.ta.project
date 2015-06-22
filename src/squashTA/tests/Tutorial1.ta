@@ -1,12 +1,6 @@
 SETUP :
 
 TEST :
-
-SETUP :
-
-TEST :
 # EXECUTE_SELENIUM2 selenium WITH MAIN CLASS Tutorial1
-
-TEARDOWN :
 
 TEARDOWN :
