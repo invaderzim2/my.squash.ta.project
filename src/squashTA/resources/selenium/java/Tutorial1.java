@@ -144,14 +144,14 @@ driver.get(baseUrl);
 	driver.findElement(By.cssSelector("body")).sendKeys(Keys.F11);
 	
 
-while (i<12) {
+while (i<20) {
 	i++;
 	Report.WriteToLog("Step#"+i);
 
 	for (int second = 0;; second++) {
 		if (second >= 250) fail("timeout");
 		if (isElementPresent(By.cssSelector("#activeQuestsList>div.questItem"))){
-			String s = driver.findElement(By.cssSelector("#activeQuestsList>div.questItem")).getAttribute("data-id");
+			try { String s = driver.findElement(By.cssSelector("#activeQuestsList>div.questItem")).getAttribute("data-id");  } catch (Exception exx) {Report.WriteToLog("Missed questItem"); continue;}
 			if (!s.equals(NextQuest)) {
 				NextQuest=s;
 				Report.WriteToLog(NextQuest);
