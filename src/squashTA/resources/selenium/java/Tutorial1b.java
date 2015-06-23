@@ -63,7 +63,7 @@ public class Tutorial1b {
 		  String NextQuest = "tutorial1"; 
 		  int i = 0;
 	driver.manage().window().maximize();
-	driver.get(baseUrl + "#loginCode=" + parser.setLoginCode("5565ae3dfe985738f2e75581___$6$4c29944e-a752-4a$iLbxUryBFPCEMY94dgKpt7QRXszAFdLvRpZY1z/Tm3nNxhKHKvFvM3x6S0BdmwkOvdNgSvhq5Nfp130MNUldH1"));
+	driver.get(baseUrl + "#loginCode=" + parser.setLoginCode("551ba971e4b083914ab9300d___$6$85c2d1bb-0929-43$fz9cgdEhXf7nL8ucb0JxaPcbmsXSKDjSO/Jrmrgf6.dXCVPCM/l0Z2iUqw.N9VCgFHs6W8o5HHsB8R4wgUR4g1"));
 	Thread.sleep(2000);
 
 	  ReWebDriver rdriver = new ReWebDriver(driver, browser);
