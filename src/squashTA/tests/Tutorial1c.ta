@@ -1,0 +1,15 @@
+SETUP :
+
+DEFINE $(IT_CUF_loginCode=558a7cbfe4b047a2cee4814a___$6$3e015e53-b8f5-48$0y2KxxWZoQNo8WEATKlVtPB1T9LqfWf3UEnUeZNJRt9zf1jO9LOkJtpGvvmndh8oPDqTIqLIT8STawcbczeD21) AS placeholder.file
+CONVERT placeholder.file TO properties(structured) AS placeholder.properties
+
+TEST :
+
+LOAD selenium AS file0.file
+CONVERT file0.file TO file(param) USING placeholder.properties AS file1.file
+CONVERT file1.file TO script.java(compile) AS file2.compiled
+CONVERT file2.compiled TO script.java.selenium2(script) USING $(Tutorial1) AS file3.selenium
+EXECUTE execute WITH file3.selenium AS file4.result
+ASSERT file4.result IS success
+
+TEARDOWN :
