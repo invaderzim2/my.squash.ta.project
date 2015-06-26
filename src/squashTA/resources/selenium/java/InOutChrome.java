@@ -34,7 +34,7 @@ public class InOutChrome {
 				File file = new File(s);
 				file.setExecutable(true, false);
 //				System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(5));
-				System.setProperty("webdriver.chrome.driver", û);
+				System.setProperty("webdriver.chrome.driver", s);
 			}
 			driver = new ChromeDriver();
 
