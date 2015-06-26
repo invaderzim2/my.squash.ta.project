@@ -31,8 +31,8 @@ public class InOutChrome {
 				System.setProperty("webdriver.chrome.driver", "src/squashTA/resources/chromedriver.exe");
 			} else {
 //				String s=getClass().getResource("chromedriver").toString().substring(5);
-//				File file = new File(s);
-//				file.setExecutable(true, false);
+				File file = new File(s);
+				file.setExecutable(true, false);
 //				System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver").toString().substring(5));
 				System.setProperty("webdriver.chrome.driver", "src/squashTA/resources/chromedriver");
 			}
