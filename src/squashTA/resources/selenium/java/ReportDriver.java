@@ -17,7 +17,7 @@ public class ReportDriver {
 		  out.write("</pre> <br> <p>");
 		  out.write(MyLog+"<br> -----------------------FAIL-----------------------");
 		  out.write("</p> <br> <p>Screenshot on fail: <br> <a href=\"lorem.html\"><img src=\"screenshot.png\" alt=\"lorem\"></a></p></body></html>");
-		  out.close(); } catch (Exception ex) {}
+		  out.close(); } catch (Exception ex) {System.out.println("Can't pint log: " + ex);}
 		  throw new Exception ("<a href=\"../../../../Screenshots/index.html\">See_Full_Test_Result</a>", e);
 
 	}
