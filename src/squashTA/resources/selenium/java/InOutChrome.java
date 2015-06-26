@@ -60,6 +60,7 @@ public class InOutChrome {
     	try { if (isElementPresent(By.id("open-login"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
+    Thread.sleep(10000);
     driver.findElement(By.id("open-login")).click();
     driver.findElement(By.id("TopLoginForm_email")).clear();
 //    driver.findElement(By.id("TopLoginForm_email")).sendKeys("7@7.ru");
