@@ -49,6 +49,7 @@ public class ParserXML {
 		if (serverName.equals("DEV")) {return "https://game-dev.sw.co.ua/";}
 		if (serverName.equals("QA")) {return "https://game-qa.sw.co.ua/";}
 		if (serverName.equals("UAT")) {return "https://game-uat.sw.co.ua/";}
+		if (serverName.equals("PRODCOPY")) {return "https://game-prodcopy.sw.co.ua/";}
 		if (serverName.equals("PROD")) {return "https://game.mireyn.ru/";}
 		return serverName;
 	}

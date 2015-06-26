@@ -15,6 +15,7 @@ public class InOutChrome {
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
+  private ReportDriver Report = new ReportDriver();
   private ParserXML parser = new ParserXML();
 //  private String browser = "chrome";
 
@@ -50,9 +51,10 @@ public class InOutChrome {
 
   @Test
   public void testInOutChrome() throws Exception {
-	  
+	  try {
+		  Report.WriteToLog("Open URL: "+baseUrl.replace("game","www"));
 	driver.manage().window().maximize();
-	driver.get(baseUrl);
+	driver.get(baseUrl.replace("game","www"));
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
     	try { if (isElementPresent(By.id("open-login"))) break; } catch (Exception e) {}
@@ -90,7 +92,10 @@ public class InOutChrome {
     }
 
     driver.findElement(By.id("close-login")).click();
-  }
+  } catch (Throwable e) {
+	  	Report.PrintLog(driver,e);
+	  }
+}
 
   @After
   public void tearDown() throws Exception {
