@@ -145,7 +145,7 @@ driver.get(baseUrl);
 	
 	String s=NextQuest;
 
-while (i<100) {
+while (i<40) {
 	i++;
 	Report.WriteToLog("Step#"+i);
 	
