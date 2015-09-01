@@ -17,15 +17,15 @@ public class InOutChrome {
   private StringBuffer verificationErrors = new StringBuffer();
   private ReportDriver Report = new ReportDriver();
   private ParserXML parser = new ParserXML();
-//  private String browser = "chrome";
+  private String browser = "chrome";
 
   @Before
   public void setUp() throws Exception {
 //    driver = new FirefoxDriver();
 	
-//		parser.getData();
+		parser.getData();
 		
-//		browser = parser.setBrowser(browser);
+		browser = parser.setBrowser(browser);
 		
 			if (System.getProperty("user.home").contains("C:\\Users\\")) {
 //				System.setProperty("webdriver.chrome.driver", getClass().getResource("chromedriver.exe").toString().substring(6));
@@ -45,7 +45,7 @@ public class InOutChrome {
 //	driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
 //	driver.get("http://www.google.com");
 //    baseUrl = "https://www-uat.sw.co.ua/";
-	baseUrl = parser.setServer("https://www-uat.sw.co.ua/");
+	baseUrl = parser.setServer("https://www-qa.sw.co.ua/");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
