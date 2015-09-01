@@ -39,7 +39,7 @@ public class InOutChrome {
 			}
 			driver = new ChromeDriver();
 
-	parser.getData();
+//	parser.getData();
 //	System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
 //	driver = new ChromeDriver();
 //	driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
