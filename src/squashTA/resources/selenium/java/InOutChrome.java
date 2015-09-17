@@ -8,6 +8,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import java.io.File;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import java.awt.event.KeyEvent;
+
 
 
 public class InOutChrome {
@@ -18,6 +21,7 @@ public class InOutChrome {
   private ReportDriver Report = new ReportDriver();
   private ParserXML parser = new ParserXML();
   private String browser = "chrome";
+  
 
   @Before
   public void setUp() throws Exception {
@@ -45,7 +49,7 @@ public class InOutChrome {
 //	driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
 //	driver.get("http://www.google.com");
 //    baseUrl = "https://www-uat.sw.co.ua/";
-	baseUrl = parser.setServer("https://www-qa.sw.co.ua/");
+	baseUrl = parser.setServer("https://game-qa.sw.co.ua/");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -60,24 +64,104 @@ public class InOutChrome {
     	try { if (isElementPresent(By.id("open-login"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-    Thread.sleep(10000);
+    Thread.sleep(5000);
     driver.findElement(By.id("open-login")).click();
     driver.findElement(By.id("TopLoginForm_email")).clear();
 //    driver.findElement(By.id("TopLoginForm_email")).sendKeys("7@7.ru");
 //    driver.findElement(By.id("TopLoginForm_email")).sendKeys("${IT_CUF_login}");
 //    driver.findElement(By.id("TopLoginForm_email")).sendKeys(name);
-    driver.findElement(By.id("TopLoginForm_email")).sendKeys(parser.setLogin("6@6.ru"));
+    driver.findElement(By.id("TopLoginForm_email")).sendKeys(parser.setLogin("autotest@sw.co.ua"));
     driver.findElement(By.id("TopLoginForm_password")).clear();
     driver.findElement(By.id("TopLoginForm_password")).sendKeys(parser.setPassword("123456"));
     driver.findElement(By.id("login")).click();
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
 //    	try { if ("7@7.ru".equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
-    	try { if (parser.setLogin("6@6.ru").equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
+    	try { if (parser.setLogin("autotest@sw.co.ua").equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 
     driver.findElement(By.id("open-register")).click();
+    
+    //////////***********
+
+
+Thread.sleep(2000);
+
+ReWebDriver rdriver = new ReWebDriver(driver, browser);
+WebElement el = driver.findElement(By.cssSelector("body"));
+
+Report.WriteToLog("Load preset: \"Presetdva\"");
+driver.get(baseUrl.replace("game","admin") + "#gameCharacter/list/0/presetdva");
+
+for (int second = 0;; second++) {
+if (second >= 60) fail("timeout");
+if (isElementPresent(By.id("search-input"))) break;
+Thread.sleep(1000);
+}
+
+
+Thread.sleep(1000);
+
+for (int second = 0;; second++) {
+if (second >= 60) fail("timeout");
+if (isElementPresent(By.xpath("//td[text()='\"Presetdva\"']//..//button[@data-action='copy']"))) break;
+Thread.sleep(1000);
+}
+Thread.sleep(1000);
+driver.findElement(By.xpath("//td[text()='\"Presetdva\"']//..//button[@data-action='copy']")).click();
+
+Thread.sleep(1000);
+
+driver.findElement(By.xpath("//label[text()='equip']//..//input[@type='checkbox']")).click();
+
+driver.findElement(By.xpath("//label[text()='inventory']//..//input[@type='checkbox']")).click();
+
+driver.findElement(By.xpath("//label[text()='quest']//..//input[@type='checkbox']")).click();
+
+driver.findElement(By.xpath("//button[text()='ok']")).click();
+
+Thread.sleep(1000);
+
+assertEquals("success", closeAlertAndGetItsText());
+
+Report.WriteToLog("Teleport to location: \"castle_namiko\"");
+
+Thread.sleep(1000);
+
+driver.get(baseUrl.replace("game","admin") + "#location/list/");
+
+Thread.sleep(1000);
+
+for (int second = 0;; second++) {
+if (second >= 60) fail("timeout");
+if (isElementPresent(By.xpath("//td[text()='\"castle_namiko\"']//..//button[@data-action='teleport']"))) break;
+Thread.sleep(1000);
+}
+
+Thread.sleep(1000);
+
+driver.findElement(By.xpath("//td[text()='\"castle_namiko\"']//..//button[@data-action='teleport']")).click();
+
+Thread.sleep(1000);
+
+driver.switchTo().alert().accept();
+
+Thread.sleep(1000);
+
+assertEquals("success", closeAlertAndGetItsText());
+
+Report.WriteToLog("Begin the scenario: smoke_test1");
+
+Thread.sleep(1000);
+
+driver.get(baseUrl);
+
+driver.findElement(By.cssSelector("body")).sendKeys(Keys.F11);
+
+    
+    //////////***********
+    
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
     	try { if (isElementPresent(By.cssSelector("div.buttonExit"))) break; } catch (Exception e) {}
@@ -85,10 +169,11 @@ public class InOutChrome {
     }
 
     driver.findElement(By.cssSelector("div.buttonExit")).click();
+    
     for (int second = 0;; second++) {
     	if (second >= 60) fail("timeout");
 //    	try { if ("7@7.ru".equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
-    	try { if (parser.setLogin("6@6.ru").equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
+    	try { if (parser.setLogin("autotest@sw.co.ua").equals(driver.findElement(By.cssSelector("div.email")).getText())) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
 
