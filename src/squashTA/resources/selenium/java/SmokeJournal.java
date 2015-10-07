@@ -70,8 +70,6 @@ for (int second = 0;; second++) {
 	try { if (isElementPresent(By.cssSelector("div.journal"))) break; } catch (Exception e) {}
 	Thread.sleep(1000);
 }
-
-Thread.sleep(1000);
  
 driver.findElement(By.cssSelector("div.journal")).click();
 

@@ -70,8 +70,6 @@ public class SmokeDuel {
 		  	try { if (isElementPresent(By.id("battleReg"))) break; } catch (Exception e) {}
 		  	Thread.sleep(1000);
 		  }
-
-		  Thread.sleep(1000);
 		  
 		  driver.findElement(By.id("battleReg")).click();
 		  
@@ -84,8 +82,6 @@ public class SmokeDuel {
 			  	try { if (isElementPresent(By.xpath("//div[@data-id='DUELING']"))) break; } catch (Exception e) {}
 			  	Thread.sleep(1000);
 			  }
-		  
-		  Thread.sleep(1000);
 		  
 		  driver.findElement(By.xpath("//div[@data-id='DUELING']")).click();
 		  
@@ -107,8 +103,6 @@ public class SmokeDuel {
 			  	try { if (isElementPresent(By.cssSelector("div.profile > div.titleDark > span"))) break; } catch (Exception e) {}
 			  	Thread.sleep(1000);
 			  }
-		  
-		  Thread.sleep(1000);
 		  
 		  assertEquals("Autotest [3]", driver.findElement(By.cssSelector("div.profile > div.titleDark > span")).getText());
 		  

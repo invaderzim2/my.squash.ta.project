@@ -71,8 +71,6 @@ for (int second = 0;; second++) {
 	Thread.sleep(1000);
 }
 
-Thread.sleep(1000);
-
 Report.WriteToLog("Check nickname");
 
 assertEquals("Autotest", driver.findElement(By.cssSelector("div.nickname")).getText());
@@ -84,8 +82,6 @@ for (int second = 0;; second++) {
 	try { if (isElementPresent(By.cssSelector("div.level"))) break; } catch (Exception e) {}
 	Thread.sleep(1000);
 }
-
-Thread.sleep(1000);
 
 assertEquals("3", driver.findElement(By.cssSelector("div.level")).getText());
 

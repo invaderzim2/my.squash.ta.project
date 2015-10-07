@@ -70,12 +70,10 @@ public class SmokeMail {
 		  	try { if (isElementPresent(By.cssSelector("div.slotMail"))) break; } catch (Exception e) {}
 		  	Thread.sleep(1000);
 		  }
-
-		  Thread.sleep(1000);
 		  
 		  driver.findElement(By.cssSelector("div.slotMail")).click();
 		  
-		  Report.WriteToLog("Write letter to yourself (title/message = date-time)");
+		  Report.WriteToLog("Write letter to yourself");
 		  
 		  Thread.sleep(1000);
 		  
@@ -84,8 +82,6 @@ public class SmokeMail {
 			  	try { if (isElementPresent(By.id("writeLetter"))) break; } catch (Exception e) {}
 			  	Thread.sleep(1000);
 			  }
-		  
-		  Thread.sleep(1000);
 		  
 		  driver.findElement(By.id("writeLetter")).click();
 		  
@@ -119,8 +115,6 @@ public class SmokeMail {
 			  	Thread.sleep(1000);
 			  }
 		  
-		  Thread.sleep(1000);
-		  
 		  driver.findElement(By.cssSelector("div.newMail")).click();
 		  
 		  Thread.sleep(1000);
@@ -131,7 +125,7 @@ public class SmokeMail {
 			  	Thread.sleep(1000);
 			  }
 		  
-		  Thread.sleep(1000);
+		  Thread.sleep(2000);
 
 		  assertEquals("qwertyasdfgh", driver.findElement(By.cssSelector("#viewMail div.titleDark > span")).getText());
 		  assertEquals("qwertyasdfgh", driver.findElement(By.cssSelector("#viewMail div.text")).getText());

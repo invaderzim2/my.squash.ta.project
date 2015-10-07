@@ -80,7 +80,7 @@ if (second >= 60) fail("timeout");
 if (isElementPresent(By.xpath("//td[text()='\"Presetdva\"']//..//button[@data-action='copy']"))) break;
 Thread.sleep(1000);
 }
-Thread.sleep(1000);
+
 driver.findElement(By.xpath("//td[text()='\"Presetdva\"']//..//button[@data-action='copy']")).click();
 
 Thread.sleep(1000);
@@ -111,7 +111,7 @@ if (isElementPresent(By.xpath("//td[text()='\"castle_namiko\"']//..//button[@dat
 Thread.sleep(1000);
 }
 
-Thread.sleep(1000);
+
 
 driver.findElement(By.xpath("//td[text()='\"castle_namiko\"']//..//button[@data-action='teleport']")).click();
 

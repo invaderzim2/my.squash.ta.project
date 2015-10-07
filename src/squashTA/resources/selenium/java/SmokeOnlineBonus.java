@@ -71,8 +71,6 @@ for (int second = 0;; second++) {
 	Thread.sleep(1000);
 }
 
-Thread.sleep(1000);
-
 Report.WriteToLog("Check online bonus presents");
 
 for (int second = 0;; second++) {

@@ -65,7 +65,7 @@ public class SmokeLogIn {
     	try { if (isElementPresent(By.id("open-login"))) break; } catch (Exception e) {}
     	Thread.sleep(1000);
     }
-    Thread.sleep(5000);
+    Thread.sleep(2000);
     Report.WriteToLog("Try to log-in");
     driver.findElement(By.id("open-login")).click();
     driver.findElement(By.id("TopLoginForm_email")).clear();

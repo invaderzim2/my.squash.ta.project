@@ -70,8 +70,6 @@ public class SmokeFriends {
 		  	try { if (isElementPresent(By.id("openFriends"))) break; } catch (Exception e) {}
 		  	Thread.sleep(1000);
 		  }
-
-		  Thread.sleep(1000);
 		  
 		  driver.findElement(By.id("openFriends")).click();
 		  
@@ -84,8 +82,6 @@ public class SmokeFriends {
 			  	try { if (isElementPresent(By.xpath("//div[@data-id='onlineList']"))) break; } catch (Exception e) {}
 			  	Thread.sleep(1000);
 			  }
-		  
-		  Thread.sleep(1000);
 		  
 		  driver.findElement(By.xpath("//div[@data-id='onlineList']")).click();
 		  

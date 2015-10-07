@@ -70,8 +70,6 @@ public class SmokeDungeon {
 		  	try { if (isElementPresent(By.cssSelector("div.dungeon"))) break; } catch (Exception e) {}
 		  	Thread.sleep(1000);
 		  }
-
-		  Thread.sleep(1000);
 		  
 		  driver.findElement(By.cssSelector("div.dungeon")).click();
 

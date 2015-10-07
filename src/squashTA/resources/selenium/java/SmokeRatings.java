@@ -70,8 +70,6 @@ public class SmokeRatings {
 		  	try { if (isElementPresent(By.id("openRating"))) break; } catch (Exception e) {}
 		  	Thread.sleep(1000);
 		  }
-
-		  Thread.sleep(1000);
 		  
 		  driver.findElement(By.id("openRating")).click();
 		  

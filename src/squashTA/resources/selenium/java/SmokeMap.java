@@ -71,8 +71,6 @@ public class SmokeMap {
 		  	Thread.sleep(1000);
 		  }
 
-
-		  Thread.sleep(1000);
 		   
 		  driver.findElement(By.id("openMap")).click();
 
