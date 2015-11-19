@@ -83,7 +83,7 @@ for (int second = 0;; second++) {
 	Thread.sleep(1000);
 }
 
-assertEquals("3", driver.findElement(By.cssSelector("div.level")).getText());
+assertEquals("5", driver.findElement(By.cssSelector("div.level")).getText());
 
 
     Report.WriteToLog("Scenario finished!");

@@ -103,8 +103,8 @@ public class SmokeDuel {
 			  	try { if (isElementPresent(By.cssSelector("div.profile > div.titleDark > span"))) break; } catch (Exception e) {}
 			  	Thread.sleep(1000);
 			  }
-		  
-		  assertEquals("Autotest [3]", driver.findElement(By.cssSelector("div.profile > div.titleDark > span")).getText());
+		  Thread.sleep(1000);
+		  assertEquals("Autotest [5]", driver.findElement(By.cssSelector("div.profile > div.titleDark > span")).getText());
 		  
     Report.WriteToLog("Scenario finished!");
   } catch (Throwable e) {

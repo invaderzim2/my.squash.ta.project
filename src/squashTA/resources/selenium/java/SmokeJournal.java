@@ -67,11 +67,11 @@ Report.WriteToLog("Open journal");
 
 for (int second = 0;; second++) {
 	if (second >= 60) fail("timeout");
-	try { if (isElementPresent(By.cssSelector("div.journal"))) break; } catch (Exception e) {}
+	try { if (isElementPresent(By.id("openJournal"))) break; } catch (Exception e) {}
 	Thread.sleep(1000);
 }
  
-driver.findElement(By.cssSelector("div.journal")).click();
+driver.findElement(By.id("openJournal")).click();
 
 Report.WriteToLog("Check journal is present");
 

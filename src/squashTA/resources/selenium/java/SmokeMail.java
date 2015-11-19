@@ -67,11 +67,11 @@ public class SmokeMail {
 
 		  for (int second = 0;; second++) {
 		  	if (second >= 60) fail("timeout");
-		  	try { if (isElementPresent(By.cssSelector("div.slotMail"))) break; } catch (Exception e) {}
+		  	try { if (isElementPresent(By.id("openMail"))) break; } catch (Exception e) {}
 		  	Thread.sleep(1000);
 		  }
-		  
-		  driver.findElement(By.cssSelector("div.slotMail")).click();
+
+		  driver.findElement(By.id("openMail")).click();
 		  
 		  Report.WriteToLog("Write letter to yourself");
 		  

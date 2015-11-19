@@ -97,7 +97,7 @@ Thread.sleep(1000);
 
 assertEquals("success", closeAlertAndGetItsText());
 
-Report.WriteToLog("Teleport to location: \"castle_namiko\"");
+Report.WriteToLog("Teleport to location: \"town_suburb\"");
 
 Thread.sleep(1000);
 
@@ -107,13 +107,13 @@ Thread.sleep(1000);
 
 for (int second = 0;; second++) {
 if (second >= 60) fail("timeout");
-if (isElementPresent(By.xpath("//td[text()='\"castle_namiko\"']//..//button[@data-action='teleport']"))) break;
+if (isElementPresent(By.xpath("//td[text()='\"town_suburb\"']//..//button[@data-action='teleport']"))) break;
 Thread.sleep(1000);
 }
 
 
 
-driver.findElement(By.xpath("//td[text()='\"castle_namiko\"']//..//button[@data-action='teleport']")).click();
+driver.findElement(By.xpath("//td[text()='\"town_suburb\"']//..//button[@data-action='teleport']")).click();
 
 Thread.sleep(1000);
 
