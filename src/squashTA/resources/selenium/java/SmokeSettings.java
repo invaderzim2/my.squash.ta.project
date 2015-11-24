@@ -67,11 +67,11 @@ public class SmokeSettings {
 
 		  for (int second = 0;; second++) {
 		  	if (second >= 60) fail("timeout");
-		  	try { if (isElementPresent(By.cssSelector("div.setting"))) break; } catch (Exception e) {}
+		  	try { if (isElementPresent(By.id("settings"))) break; } catch (Exception e) {}
 		  	Thread.sleep(1000);
 		  }
 		  
-		  driver.findElement(By.cssSelector("div.setting")).click();
+		  driver.findElement(By.id("settings")).click();
 		  
 		  Report.WriteToLog("Check num of browser tabs");
 		  
